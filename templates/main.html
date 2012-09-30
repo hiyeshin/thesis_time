@@ -1,0 +1,66 @@
+{% extends "/layout.html" %}
+
+{% block styles %}
+<style>
+img.category_icon {
+	width: 90px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+
+	<!-- left column -->
+	<div class="span6">
+		<h3>Hello my lovely classmate!</h3>
+		<p>Doesn't it feel like midterm?</p>
+		<p>It's not even finals yet.</p>
+		<p>But you know what?</p>
+		<p>It's time to think about your THESIS,</p>
+		<p>according to Nancy two weeks ago.</p>
+		<br>
+		<img src="/static/img/petting_zoo.jpg" alt="Children picking out there spirit animals." class="img-polaroid"/>
+		
+	</div>
+
+	<!-- right column -->
+	<div class="span5">
+		<form method="POST" action="/choose">
+			<legend><h3>Thesis Time</h3></legend>
+
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name">
+
+			<label for="start_time">When are you planning to start?</label>
+			<select id="start_time" name="rentaltime">
+				<option value="already">What are you talking about? I started already.</option>
+				<option value="now">Thanks to you, from now on?</option>
+				<option value="midterm">Well...maybe after midterm?</option>
+				<option value="final">Hmm...after finals?</option>
+				<option value="dunno">I dunno. Stop reminding me.</option>
+			</select>
+
+			<label for="category">What kind of project will your thesis be?</label>
+			
+			{% for name, info in categories.items() %}
+			<label class="checkbox">
+				<input type="checkbox" name="category" value="{{ name }}">
+				<img class="category_icon img-rounded" src="/static/img/animals/{{ info.get('image') }}">
+				{{ name }}, {{ info.get('title')}}
+			</label>
+			{% endfor %}
+
+			<input type="submit" value="Done" class="btn btn-large btn-primary"/>
+
+		</form>
+
+	</div>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}{% endblock %}

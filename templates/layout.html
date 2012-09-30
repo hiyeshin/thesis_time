@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="ITP DWD Example Site using templates">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+        <!-- Get Font from Google http://www.google.com/webfonts -->
+        <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
+
+        <style>
+
+            /* full screen background image */
+            html { 
+                background: url({{ url_for('static', filename='img/canyon_bg.jpg') }}) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                
+            }
+
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+                background-color:transparent;
+            }
+
+            /* white background */
+            div.container {
+                 background: rgba(255, 255, 255, 0.6);
+            }
+
+            h1.pageheader a, h1.pageheader a:hover {
+                font-family: 'Peralta', cursive;
+                font-size:65px;
+                line-height:72px;
+
+                color:red;
+                text-shadow: 3px 3px 3px #000;
+                text-align:center;
+
+            }
+
+            p,li, label {
+                font-size:18px;
+            }
+
+            footer { text-align: center;}
+
+        </style>
+        {% block styles %}{% endblock %}
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+        <div class="container">
+
+            <h1 class="pageheader">
+                <a href="/">Uncle Andy's<br>
+                Rent A Spirit Animal</a>
+            </h1>
+
+            <hr>
+
+
+
+            {% block body %}{% endblock %}
+
+            <hr/>
+            <footer>
+                <p><a href="http://itppyweb.herokuapp.com/class/week_4_flask_jinja">ITP DWD Fall 2012</a> | <a href="https://github.com/johnschimmel/ITP-DWD-Week4-Templates">See Code on Github</a></p>
+                <p>Animals from <a href="http://www.arthursclipart.org/silhouettes/animals.htm">www.arthursclipart.org</a></p>
+            </footer>
+
+        </div> <!-- /container -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/jquery-1.8.1.min.js') }}"><\/script>')</script>
+        <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+        
+        {% block scripts %}{% endblock %}
+
+    </body>
+</html>
