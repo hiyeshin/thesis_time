@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
-        <meta name="description" content="ITP DWD Example Site using templates">
+        <meta name="description" content="ITP DWD Thesis Time">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
@@ -18,7 +18,8 @@
 
             /* full screen background image */
             html { 
-                background: url({{ url_for('static', filename='img/canyon_bg.jpg') }}) no-repeat center center fixed; 
+           /*     background: url({{ url_for('static', filename='img/canyon_bg.jpg') }}) no-repeat center center fixed; */
+				background: "white";
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -65,8 +66,8 @@
         <div class="container">
 
             <h1 class="pageheader">
-                <a href="/">Uncle Andy's<br>
-                Rent A Spirit Animal</a>
+                <a href="/">
+                It's Thesis Time!</a>
             </h1>
 
             <hr>
@@ -78,7 +79,6 @@
             <hr/>
             <footer>
                 <p><a href="http://itppyweb.herokuapp.com/class/week_4_flask_jinja">ITP DWD Fall 2012</a> | <a href="https://github.com/johnschimmel/ITP-DWD-Week4-Templates">See Code on Github</a></p>
-                <p>Animals from <a href="http://www.arthursclipart.org/silhouettes/animals.htm">www.arthursclipart.org</a></p>
             </footer>
 
         </div> <!-- /container -->

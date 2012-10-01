@@ -55,16 +55,16 @@ def choose():
 
 	# Get the user submitted data
 	chooseData = {
+		# key has an underline. value doesn't.
 		"name": request.form.get("name"),
-		"category_name": request.form.get("categories"),
-		"start_time": request.form.get("start_time")
+		"category_name": request.form.get("category"),
+		"start_time": request.form.get("start")
 	}
 	
 	# get the category data by category_name
 	chooseData["category"] = categories[chooseData.get("category_name")]
 	
 	# determine starting date
-	now = datetime.datetime.now()
 	
 	if chooseData["start_time"] != "dunno":
 		now = datetime.datetime.now()
@@ -81,11 +81,14 @@ def choose():
 		elif chooseData["start_time"] == "final":
 			future = datetime.timedelta(days = 15) # I'll change it later
 			
-		chooseData["return_time"] = now + future
+		chooseData["thesis_time"] = now + future
 			
 		
 	else:
-		chooseData["start_time"] = None	
+		chooseData["thesis_time"] = None	
+		
+	
+	return render_template("thesis_time.html", **chooseData)
 
 
 @app.errorhandler(404)
