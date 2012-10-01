@@ -13,34 +13,30 @@ app = Flask(__name__)   # create our flask app
 categories = {}
 #Let's make a dictionary
 categories["Performance"] = {
-	"image": "performance.gif",
+	"image": "performance.png",
 	"title": "Performance",
 	"inStock": True
 }
 
 categories["Installation"] = {
-	"image": "installation.gif", 
+	"image": "installation.png", 
 	"title": "Installation",
 	"inStock": True
 }
 
 categories["Web"] = {
-	"image": "web.gif",
+	"image": "web.png",
 	"title": "Web",
 	"inStock": True
 }
 
 categories["Mobile app"] = {
-	"image": "mobile.gif",
+	"image": "mobile.png",
 	"title": "Mobile app",
 	"inStock": True
 }
 
-categories ["Extra"] = {
-	"image": "extra.gif",
-	"title": "Extra",
-	"inStock": True
-}
+
 
 # this is our main page
 @app.route("/")
