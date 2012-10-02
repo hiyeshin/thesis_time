@@ -3,32 +3,28 @@
 {% block styles %}
 <style>
 img.category_icon {
-	width: 60px;
-	
+	width: 40px;
 }
 </style>
 {% endblock %}
 
 {% block body %}
-
-
 	
-	<p>It's not even midterms yet. Finals seems to be far far away. But you know what?</p>
-	<p>It's time to think about your thesis, according to Nancy.</p>
+	<i><p>It's not even midterms yet. Finals seems to be far far away. But you know what?</p>
+	<p>It's time to think about your thesis, according to Nancy.</p></i>
 	<br>
 
 <div class="row">
-
-
-	<!-- right column -->
 	<div class="span4">
 		<form method="POST" action="/choose">
-			<label for="name">Name</label>
+			
+			<!--here here here -->
+			<label for="name"><b>1. Name</b></label>
 			<input type="text" placeholder = "Type your name." id="name" name="name">
 	</div>
 	
 	<div class = "span4">
-			<label for="category">What kind of project will your thesis be?</label>
+			<label for="category"><b>2. What kind of project will your thesis be?</b></label>
 			
 			{% for name, info in categories.items() %}
 			<label class="checkbox">
@@ -38,35 +34,40 @@ img.category_icon {
 			</label>
 			<br />
 			{% endfor %}
-			
+		
 			<label class = "checkbox">
 				<input type = "checkbox" name = "category" value = "None of them!">
 				<img class="category_icon img-rounded" src="/static/img/categories/extra.png">
 				None of them!
+				<textarea rows = "3" placeholder = "Tell me about it."></textarea> 
 			</label>
-			<textarea rows = "3" placeholder = "Tell me in detail!"></textarea> 
-			
+				<!--
+			<label for = "extra">
+			-->
 		</div>
 		
 		<div class ="span4">	
-			<label for="start">When are you planning to start?</label>
+			<label for="start"><b>3. When are you planning to start?</b></label>
 			<select id="start" name="start">
-				<option value="already">What are you talking about? I started already.</option>
+				<option value="already">Hello? I started already.</option>
 				<option value="now">Thanks to you, from now on?</option>
-				<option value="midterm">Well...maybe after midterm?</option>
+				<option value="midterm">Well...after midterm?</option>
 				<option value="final">Hmm...after finals?</option>
-				<option value="dunno">I dunno. Stop reminding me.</option>
-			</select>
+				<option value="dunno">Stop reminding me.</option>
+			</select>	
+			<br /><br/ ><br /><br/ ><br /><br/ ><br />
 		
-			
-			<br />
-
-
 			<div class = "form-actions">
-				<button type = "submit" class = "btn btn-primary"> Save it for later</button>
-				<button type = "button" class = "btn"> Cancel </button>
+				<button type = "submit" class = "btn btn-large btn-success"> Save it for later</button>
+				<button type = "button" class = "btn btn-large"> Cancel </button>
 		</form>
-
+	
+	<!--	
+		<div class = "alert">
+			<button type = "button" class = "close" data-dismiss = "alert" x> </button>
+			<strong>Warning! </strong?> You have to fill everything up. It's for YOUR thesis.
+		</div>
+     -->
 	</div>
 	
 	</div>

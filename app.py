@@ -2,10 +2,11 @@
 ######## week 4 thesis time ###########
 ########################################
 
-import os, datetime
+import os, datetime, time
 
 from flask import Flask, request # Retrieve Flask, our framework
 from flask import render_template
+from datetime import date
 
 app = Flask(__name__)   # create our flask app
 
@@ -15,25 +16,21 @@ categories = {}
 categories["Performance"] = {
 	"image": "performance.png",
 	"title": "Performance",
-	"inStock": True
 }
 
 categories["Installation"] = {
 	"image": "installation.png", 
-	"title": "Installation",
-	"inStock": True
+	"title": "Installation",	
 }
 
 categories["Web"] = {
 	"image": "web.png",
 	"title": "Web",
-	"inStock": True
 }
 
 categories["Mobile app"] = {
 	"image": "mobile.png",
 	"title": "Mobile app",
-	"inStock": True
 }
 
 
@@ -60,22 +57,36 @@ def choose():
 	# get the category data by category_name
 	chooseData["category"] = categories[chooseData.get("category_name")]
 	
+#	if chooseData["category_name"] != "extra":
+#		return chooseData["category"]
 	# determine starting date
 	
 	if chooseData["start_time"] != "dunno":
+		proposal = datetime.date(2012,12,1)
 		now = datetime.datetime.now()
+		today = date.today()
 		
 		if chooseData["start_time"] == "already":
-			future = datetime.timedelta(days = 90) # I'll change it later
+			future = today # I'll change it later
 			
 		elif chooseData["start_time"] == "now":
-			future = datetime.timedelta(days = 90) # I'll change it later
+			future = today # I'll change it later
 			
 		elif chooseData["start_time"] =="midterm":
-			future = datetime.timedelta(days = 45) #I'll change it later
+			midterm = datetime.date(2012, 10, 23)
+			#future = datetime.timedelta(days = 45) #I'll change it later
+			#midterm : October 23, 2012
+			future = abs(midterm - today)
+			future
 			
 		elif chooseData["start_time"] == "final":
-			future = datetime.timedelta(days = 15) # I'll change it later
+			final = datetime.date(2012,12,11)
+		#	future = datetime.timedelta(days = 15) # I'll change it later
+			future = abs(final - today)
+			future
+			#change to winter show?
+			# finals: December 11
+			# winter show: December 16
 			
 		chooseData["thesis_time"] = now + future
 			

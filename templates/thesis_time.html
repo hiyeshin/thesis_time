@@ -14,13 +14,13 @@ img.confirm {
 
 	<!-- left column -->
 	<div class="span6 offset1">
-		<h2>Thesis Time</h2>
-		Name : {{ name }}<br>
-		Good luck on your journey to your, {{category_name}}
+		<h2>It's {{name}}'s thesis time:</h2>
+		Good luck on your {{category_name}}!
 
 		<hr />
 		{% if start_time %}
-		Thesis time : {{ thesis_time.strftime("%m/%d/%Y %H:%M %p")}}
+		Your thesis time starts from 
+		<br /> {{ thesis_time.strftime("%m/%d/%Y %H:%M %p")}}
 		
 
 		{% else %}
@@ -30,7 +30,7 @@ img.confirm {
 	</div>
 
 	<div colspan="4">
-		<img src="/static/img/animals/{{ category.get('image') }}" alt="{{ category_name }}"class="confirm img-polaroid">
+		<img src="/static/img/categories/{{ category.get('image') }}" alt="{{ category_name }}"class="confirm img-polaroid">
 		
 	</div>
 

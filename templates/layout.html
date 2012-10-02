@@ -13,12 +13,14 @@
 
         <!-- Get Font from Google http://www.google.com/webfonts -->
         <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
+		<!-- background image from www.subtlepattern.com -->
 
         <style>
 
-            /* full screen background image */
+            /* full screen background image
+				background: url({{ url_for('static', filename='img/thesis.jpg') }}) no-repeat center center fixed; */
             html { 
-               background: url({{ url_for('static', filename='img/thesis.jpg') }}) no-repeat center center fixed;
+               background: url({{ url_for('static', filename='img/background/blizzard.png') }}) repeat center center fixed;
 				
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
@@ -51,10 +53,15 @@
             }
 
             p,li, label {
+				font-family: "Minion Pro", Georgia, Serif;
                 font-size:18px;
             }
 
-            footer { text-align: center;}
+            footer { 
+				font-size: 12px;
+				font-family: 'Georgia', Times New Roman, Serif;
+				font-style: italic;
+				text-align: center;}
 
         </style>
         {% block styles %}{% endblock %}
@@ -70,16 +77,13 @@
                 <a href="/">
                 It's Thesis Time!</a>
             </h1>
-
             <hr>
-
-
 
             {% block body %}{% endblock %}
 
             <hr/>
             <footer>
-                <p><a href="http://itppyweb.herokuapp.com/class/week_4_flask_jinja">ITP DWD Fall 2012</a> | <a href="https://github.com/johnschimmel/ITP-DWD-Week4-Templates">See Code on Github</a></p>
+                <p>2012 www.hiyeshin.com</p>
             </footer>
 
         </div> <!-- /container -->
